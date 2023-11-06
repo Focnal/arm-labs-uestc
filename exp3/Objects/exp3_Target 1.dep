@@ -1,0 +1,4 @@
+Dependencies for Project 'exp3', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 5060750::V5.06 update 6 (build 750)::.\ARMCC
+F (.\test.s)(0x647619C3)(--cpu ARM920T -g --apcs=interwork -ID:\Software\keil\keil\ARM\RV31\INC-ID:\Software\keil\keil\ARM\CMSIS\Include-ID:\Software\keil\keil\ARM\INC\Samsung--pd "__UVISION_VERSION SETA 530"--list .\listings\test.lst --xref -o .\objects\test.o --depend .\objects\test.d)
+F (.\oncall.c)(0x64760B3A)(-c --cpu ARM920T -g --apcs=interwork --split_sections-ID:\Software\keil\keil\ARM\RV31\INC-ID:\Software\keil\keil\ARM\CMSIS\Include-ID:\Software\keil\keil\ARM\INC\Samsung-D__UVISION_VERSION="530"-o .\objects\oncall.o --omf_browse .\objects\oncall.crf --depend .\objects\oncall.d)

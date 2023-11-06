@@ -1,0 +1,72 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 PRESERVE8
+    2 00000000                 AREA             TEST, CODE, READONLY
+    3 00000000                 IMPORT           fun
+    4 00000000                 ENTRY
+    5 00000000         
+    6 00000000         main
+    7 00000000 E3A001C1        ldr              r0, =0x40000030
+    8 00000004 E1A0D000        mov              sp, r0
+    9 00000008 E1A0E00F        mov              lr, pc
+   10 0000000C E52DE004        str              lr, [sp, #-4]!
+   11 00000010 E3A00001        mov              r0, #1
+   12 00000014 E3A01002        mov              r1, #2
+   13 00000018 E3A02005        mov              r2, #5
+   14 0000001C E3A03006        mov              r3, #6
+   15 00000020 E92D000C        stmfd            sp!, {r2, r3}
+   16 00000024 E3A02003        mov              r2, #3
+   17 00000028 E3A03004        mov              r3, #4
+   18 0000002C EBFFFFFE        bl               fun
+   19 00000030         
+   20 00000030 E28DD008        add              sp, sp, #8
+   21 00000034 E49DF004        ldr              pc, [sp], #4
+   22 00000038                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=ARM920T --apcs=interwor
+k --depend=.\objects\test.d -o.\objects\test.o -ID:\Software\keil\keil\ARM\RV31
+\INC -ID:\Software\keil\keil\ARM\CMSIS\Include -ID:\Software\keil\keil\ARM\INC\
+Samsung --predefine="__UVISION_VERSION SETA 530" --list=.\listings\test.lst tes
+t.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+TEST 00000000
+
+Symbol: TEST
+   Definitions
+      At line 2 in file test.s
+   Uses
+      None
+Comment: TEST unused
+main 00000000
+
+Symbol: main
+   Definitions
+      At line 6 in file test.s
+   Uses
+      None
+Comment: main unused
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+fun 00000000
+
+Symbol: fun
+   Definitions
+      At line 3 in file test.s
+   Uses
+      At line 18 in file test.s
+Comment: fun used once
+1 symbol
+334 symbols in table

@@ -1,0 +1,233 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             AVG_FILTERING, CODE, READONLY
+    2 00000000                 ENTRY
+    3 00000000         start
+    4 00000000 E3A0A006        mov              r10, #6
+    5 00000004 E59F20C8        ldr              r2, =0x40000400
+    6 00000008 E1A0D002        mov              sp, r2
+    7 0000000C E3A02101        ldr              r2, =0x40000000
+    8 00000010         init_loop
+    9 00000010 E35A0000        cmp              r10, #0
+   10 00000014 0A000002        beq              end_init
+   11 00000018 E482A004        str              r10,[r2], #4
+   12 0000001C E24AA001        sub              r10, r10, #1
+   13 00000020 EAFFFFFA        b                init_loop
+   14 00000024         end_init
+   15 00000024         
+   16 00000024 E3A00006        mov              r0,#6
+   17 00000028 E3A02101        ldr              r2, =0x40000000
+   18 0000002C         ; -----------------------
+   19 0000002C EB000001        bl               bubble_sort
+   20 00000030 EB000012        bl               get_avg
+   21 00000034 EA000024        b                quit
+   22 00000038         
+   23 00000038         bubble_sort
+   24 00000038 E92D4079        push             {r0, r3, r4, r5, r6, lr}
+   25 0000003C         
+   26 0000003C         loop_i
+   27 0000003C E2400001        sub              r0, r0, #1
+   28 00000040 E3500000        cmp              r0,#0
+   29 00000044 DA00000C        ble              end_bubble_sort
+   30 00000048         
+   31 00000048 E3A03000        mov              r3, #0
+   32 0000004C         
+   33 0000004C         loop_j
+   34 0000004C E1530000        cmp              r3, r0
+   35 00000050 0AFFFFF9        beq              loop_i
+   36 00000054         
+   37 00000054 E3A06000        mov              r6, #0
+   38 00000058 E0826103        add              r6, r2, r3, lsl #2
+   39 0000005C E5964000        ldr              r4, [r6]
+   40 00000060 E5965004        ldr              r5, [r6, #4]
+   41 00000064         
+   42 00000064 E1540005        cmp              r4, r5
+   43 00000068 C5864004        strgt            r4, [r6, #4]
+   44 0000006C C5865000        strgt            r5, [r6]
+   45 00000070         
+   46 00000070 E2833001        add              r3, r3, #1
+   47 00000074 EAFFFFF4        b                loop_j
+   48 00000078         
+   49 00000078 EAFFFFEF        b                loop_i
+   50 0000007C         
+   51 0000007C         end_bubble_sort
+   52 0000007C E8BD4079        pop              {r0, r3, r4, r5, r6, lr}
+   53 00000080         
+   54 00000080         
+   55 00000080         get_avg
+   56 00000080 E92D403D        push             {r0, r2, r3, r4, r5, lr}
+   57 00000084 E1A05000        mov              r5, r0
+   58 00000088 E3A04000        mov              r4, #0
+   59 0000008C         sum_loop
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   60 0000008C E3500002        cmp              r0, #2
+   61 00000090 DA000003        ble              end_sum
+   62 00000094 E2400001        sub              r0, r0, #1
+   63 00000098         
+   64 00000098         
+   65 00000098 E5B23004        ldr              r3, [r2, #4]!
+   66 0000009C E0844003        add              r4, r4, r3
+   67 000000A0 EAFFFFF9        b                sum_loop
+   68 000000A4         end_sum
+   69 000000A4 E3550002        cmp              r5, #2
+   70 000000A8 0A000006        beq              end_get_avg
+   71 000000AC E2455002        sub              r5, r5, #2
+   72 000000B0 E3A01000        mov              r1, #0
+   73 000000B4         
+   74 000000B4         division_loop
+   75 000000B4 E1540005        cmp              r4, r5
+   76 000000B8 BA000002        blt              end_get_avg
+   77 000000BC E0444005        sub              r4, r4, r5
+   78 000000C0 E2811001        add              r1, r1, #1
+   79 000000C4 EAFFFFFA        b                division_loop
+   80 000000C8         
+   81 000000C8         end_get_avg
+   82 000000C8 E8BD403D        pop              {r0, r2, r3, r4, r5, lr}
+   83 000000CC         
+   84 000000CC         quit
+   85 000000CC EAFFFFFE        b                quit
+   86 000000D0 E1A00000        NOP
+   87 000000D4                 END
+              40000400 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=ARM920T --apcs=interwor
+k --depend=.\objects\avg.d -o.\objects\avg.o -ID:\Software\keil\keil\ARM\RV31\I
+NC -ID:\Software\keil\keil\ARM\CMSIS\Include -ID:\Software\keil\keil\ARM\INC\Sa
+msung --predefine="__UVISION_VERSION SETA 530" --list=.\listings\avg.lst avg.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+AVG_FILTERING 00000000
+
+Symbol: AVG_FILTERING
+   Definitions
+      At line 1 in file avg.s
+   Uses
+      None
+Comment: AVG_FILTERING unused
+bubble_sort 00000038
+
+Symbol: bubble_sort
+   Definitions
+      At line 23 in file avg.s
+   Uses
+      At line 19 in file avg.s
+Comment: bubble_sort used once
+division_loop 000000B4
+
+Symbol: division_loop
+   Definitions
+      At line 74 in file avg.s
+   Uses
+      At line 79 in file avg.s
+Comment: division_loop used once
+end_bubble_sort 0000007C
+
+Symbol: end_bubble_sort
+   Definitions
+      At line 51 in file avg.s
+   Uses
+      At line 29 in file avg.s
+Comment: end_bubble_sort used once
+end_get_avg 000000C8
+
+Symbol: end_get_avg
+   Definitions
+      At line 81 in file avg.s
+   Uses
+      At line 70 in file avg.s
+      At line 76 in file avg.s
+
+end_init 00000024
+
+Symbol: end_init
+   Definitions
+      At line 14 in file avg.s
+   Uses
+      At line 10 in file avg.s
+Comment: end_init used once
+end_sum 000000A4
+
+Symbol: end_sum
+   Definitions
+      At line 68 in file avg.s
+   Uses
+      At line 61 in file avg.s
+Comment: end_sum used once
+get_avg 00000080
+
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+Symbol: get_avg
+   Definitions
+      At line 55 in file avg.s
+   Uses
+      At line 20 in file avg.s
+Comment: get_avg used once
+init_loop 00000010
+
+Symbol: init_loop
+   Definitions
+      At line 8 in file avg.s
+   Uses
+      At line 13 in file avg.s
+Comment: init_loop used once
+loop_i 0000003C
+
+Symbol: loop_i
+   Definitions
+      At line 26 in file avg.s
+   Uses
+      At line 35 in file avg.s
+      At line 49 in file avg.s
+
+loop_j 0000004C
+
+Symbol: loop_j
+   Definitions
+      At line 33 in file avg.s
+   Uses
+      At line 47 in file avg.s
+Comment: loop_j used once
+quit 000000CC
+
+Symbol: quit
+   Definitions
+      At line 84 in file avg.s
+   Uses
+      At line 21 in file avg.s
+      At line 85 in file avg.s
+
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 3 in file avg.s
+   Uses
+      None
+Comment: start unused
+sum_loop 0000008C
+
+Symbol: sum_loop
+   Definitions
+      At line 59 in file avg.s
+   Uses
+      At line 67 in file avg.s
+Comment: sum_loop used once
+14 symbols
+347 symbols in table

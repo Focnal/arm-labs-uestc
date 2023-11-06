@@ -1,0 +1,12 @@
+Dependencies for Project 'key_ISR', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 5060750::V5.06 update 6 (build 750)::.\ARMCC
+F (.\S3C2440.s)(0x60333C7A)(--cpu ARM920T -g --apcs=interwork -ID:\Software\keil\keil\ARM\RV31\INC-ID:\Software\keil\keil\ARM\CMSIS\Include-ID:\Software\keil\keil\ARM\INC\Samsung--pd "__UVISION_VERSION SETA 530"--list .\listings\s3c2440.lst --xref -o .\objects\s3c2440.o --depend .\objects\s3c2440.d)
+F (.\2440addr.h)(0x60338C33)()
+F (.\main.c)(0x608BC1DA)(--c99 -c --cpu ARM920T -g -O0 --apcs=interwork --split_sections-ID:\Software\keil\keil\ARM\RV31\INC-ID:\Software\keil\keil\ARM\CMSIS\Include-ID:\Software\keil\keil\ARM\INC\Samsung-D__UVISION_VERSION="530"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (D:\Software\keil\keil\ARM\ARMCC\include\stdlib.h)(0x5E53505C)
+I (D:\Software\keil\keil\ARM\ARMCC\include\string.h)(0x5E53505C)
+I (D:\Software\keil\keil\ARM\INC\Samsung\S3C2440.H)(0x559CCD04)
+I (2440addr.h)(0x60338C33)
+F (.\IRQ_ISR.s)(0x60338C6B)(--cpu ARM920T -g --apcs=interwork -ID:\Software\keil\keil\ARM\RV31\INC-ID:\Software\keil\keil\ARM\CMSIS\Include-ID:\Software\keil\keil\ARM\INC\Samsung--pd "__UVISION_VERSION SETA 530"--list .\listings\irq_isr.lst --xref -o .\objects\irq_isr.o --depend .\objects\irq_isr.d)
+I (2440addr.inc)(0x549438B4)
+F (.\2440addr.inc)(0x549438B4)()

@@ -1,0 +1,56 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             TEST, CODE, READONLY
+    2 00000000                 ENTRY
+    3 00000000         
+    4 00000000         start
+    5 00000000 E328F0FF        msr              cpsr_f, #0xff
+    6 00000004 E10F0000        mrs              r0, cpsr
+    7 00000008         
+    8 00000008         
+    9 00000008         
+   10 00000008         
+   11 00000008         quit
+   12 00000008 EAFFFFFE        b                quit
+   13 0000000C                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=ARM920T --apcs=interwor
+k --depend=.\objects\test.d -o.\objects\test.o -ID:\Software\keil\keil\ARM\RV31
+\INC -ID:\Software\keil\keil\ARM\CMSIS\Include -ID:\Software\keil\keil\ARM\INC\
+Samsung --predefine="__UVISION_VERSION SETA 530" --list=.\listings\test.lst tes
+t.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+TEST 00000000
+
+Symbol: TEST
+   Definitions
+      At line 1 in file test.s
+   Uses
+      None
+Comment: TEST unused
+quit 00000008
+
+Symbol: quit
+   Definitions
+      At line 11 in file test.s
+   Uses
+      At line 12 in file test.s
+Comment: quit used once
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 4 in file test.s
+   Uses
+      None
+Comment: start unused
+3 symbols
+334 symbols in table

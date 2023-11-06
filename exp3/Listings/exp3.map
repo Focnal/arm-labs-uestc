@@ -1,0 +1,95 @@
+Component: ARM Compiler 5.06 update 6 (build 750) Tool: armlink [4d35ed]
+
+==============================================================================
+
+Section Cross References
+
+    test.o(TEST) refers to oncall.o(i.fun) for fun
+
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    TEST                                     0x00000000   Section       56  test.o(TEST)
+    oncall.c                                 0x00000000   Number         0  oncall.o ABSOLUTE
+    test.s                                   0x00000000   Number         0  test.o ABSOLUTE
+    i.fun                                    0x00000038   Section        0  oncall.o(i.fun)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv1$ARM_ISAv4$S$PE$A:L22$X:L11$S22$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$EBA8$STANDARDLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    fun                                      0x00000038   ARM Code      36  oncall.o(i.fun)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x00000000
+
+  Load Region LR_1 (Base: 0x00000000, Size: 0x0000005c, Max: 0xffffffff, ABSOLUTE)
+
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x0000005c, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000000   0x00000000   0x00000038   Code   RO            1  * TEST                test.o
+    0x00000038   0x00000038   0x00000024   Code   RO            6    i.fun               oncall.o
+
+
+    Execution Region ER_RW (Exec base: 0x40000000, Load base: 0x0000005c, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+
+    **** No section assigned to this execution region ****
+
+
+    Execution Region ER_ZI (Exec base: 0x40000000, Load base: 0x0000005c, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+
+    **** No section assigned to this execution region ****
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+        36          0          0          0          0       1990   oncall.o
+        56          0          0          0          0        240   test.o
+
+    ----------------------------------------------------------------------
+        92          0          0          0          0       2230   Object Totals
+         0          0          0          0          0          0   (incl. Generated)
+         0          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+         0          0          0          0          0          0   Library Totals
+         0          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+        92          0          0          0          0       2230   Grand Totals
+        92          0          0          0          0       2230   ELF Image Totals
+        92          0          0          0          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                   92 (   0.09kB)
+    Total RW  Size (RW Data + ZI Data)                 0 (   0.00kB)
+    Total ROM Size (Code + RO Data + RW Data)         92 (   0.09kB)
+
+==============================================================================
+
